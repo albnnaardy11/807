@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Checkout | 807 Sneaker Store</title>
+  <meta name="description" content="Complete your order with secure contact details, shipping address, and flexible delivery options at 807 Store." />
+
+  <!-- Google Fonts: Rubik & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Rubik:ital,wght@0,700;0,800;0,900;1,800&display=swap" rel="stylesheet" />
+
+  <!-- Bootstrap 5.3.3 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+
+  <!-- Remix Icon 4.5.0 -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+
+  <!-- SVG Symbol Definition for 807 Logo -->
+  <svg style="display: none;">
+    <symbol id="logo-807-symbol" viewBox="0 0 180 70">
+      <g fill="currentColor">
+        <!-- Number 8 -->
+        <path d="M 33 10 C 22 10 14 17 14 26 C 14 31 18 34 22 35.5 C 16 37.5 12 42 12 49 C 12 58 21 65 33 65 C 45 65 54 58 54 49 C 54 42 50 37.5 44 35.5 C 48 34 52 31 52 26 C 52 17 44 10 33 10 Z M 33 21 C 36.5 21 39 23 39 26 C 39 29 36.5 31 33 31 C 29.5 31 27 29 27 26 C 27 23 29.5 21 33 21 Z M 33 43 C 37.5 43 41 45.5 41 49 C 41 52.5 37.5 55 33 55 C 28.5 55 25 52.5 25 49 C 25 45.5 28.5 43 33 43 Z" />
+        <!-- Number 0 (Radial Halftone Dots) -->
+        <g class="halftone-dots">
+          <circle cx="98.00" cy="35.00" r="1.6" /><circle cx="95.66" cy="40.66" r="1.6" /><circle cx="90.00" cy="43.00" r="1.6" /><circle cx="84.34" cy="40.66" r="1.6" /><circle cx="82.00" cy="35.00" r="1.6" /><circle cx="84.34" cy="29.34" r="1.6" /><circle cx="90.00" cy="27.00" r="1.6" /><circle cx="95.66" cy="29.34" r="1.6" /><circle cx="102.50" cy="35.00" r="2.0" /><circle cx="100.83" cy="41.25" r="2.0" /><circle cx="96.25" cy="45.83" r="2.0" /><circle cx="90.00" cy="47.50" r="2.0" /><circle cx="83.75" cy="45.83" r="2.0" /><circle cx="79.17" cy="41.25" r="2.0" /><circle cx="77.50" cy="35.00" r="2.0" /><circle cx="79.17" cy="28.75" r="2.0" /><circle cx="83.75" cy="24.17" r="2.0" /><circle cx="90.00" cy="22.50" r="2.0" /><circle cx="96.25" cy="24.17" r="2.0" /><circle cx="100.83" cy="28.75" r="2.0" /><circle cx="107.00" cy="35.00" r="2.5" /><circle cx="105.71" cy="41.51" r="2.5" /><circle cx="102.02" cy="47.02" r="2.5" /><circle cx="96.51" cy="50.71" r="2.5" /><circle cx="90.00" cy="52.00" r="2.5" /><circle cx="83.49" cy="50.71" r="2.5" /><circle cx="77.98" cy="47.02" r="2.5" /><circle cx="74.29" cy="41.51" r="2.5" /><circle cx="73.00" cy="35.00" r="2.5" /><circle cx="74.29" cy="28.49" r="2.5" /><circle cx="77.98" cy="22.98" r="2.5" /><circle cx="83.49" cy="19.29" r="2.5" /><circle cx="90.00" cy="18.00" r="2.5" /><circle cx="96.51" cy="19.29" r="2.5" /><circle cx="102.02" cy="22.98" r="2.5" /><circle cx="105.71" cy="28.49" r="2.5" /><circle cx="111.50" cy="35.00" r="3.0" /><circle cx="110.45" cy="41.64" r="3.0" /><circle cx="107.39" cy="47.64" r="3.0" /><circle cx="102.64" cy="52.39" r="3.0" /><circle cx="96.64" cy="55.45" r="3.0" /><circle cx="90.00" cy="56.50" r="3.0" /><circle cx="83.36" cy="55.45" r="3.0" /><circle cx="77.36" cy="52.39" r="3.0" /><circle cx="72.61" cy="47.64" r="3.0" /><circle cx="69.55" cy="41.64" r="3.0" /><circle cx="68.50" cy="35.00" r="3.0" /><circle cx="69.55" cy="28.36" r="3.0" /><circle cx="72.61" cy="22.36" r="3.0" /><circle cx="77.36" cy="17.61" r="3.0" /><circle cx="83.36" cy="14.55" r="3.0" /><circle cx="90.00" cy="13.50" r="3.0" /><circle cx="96.64" cy="14.55" r="3.0" /><circle cx="102.64" cy="17.61" r="3.0" /><circle cx="107.39" cy="22.36" r="3.0" /><circle cx="110.45" cy="28.36" r="3.0" /><circle cx="116.00" cy="35.00" r="3.6" /><circle cx="115.11" cy="41.73" r="3.6" /><circle cx="112.52" cy="48.00" r="3.6" /><circle cx="108.38" cy="53.38" r="3.6" /><circle cx="103.00" cy="57.52" r="3.6" /><circle cx="96.73" cy="60.11" r="3.6" /><circle cx="90.00" cy="61.00" r="3.6" /><circle cx="83.27" cy="60.11" r="3.6" /><circle cx="77.00" cy="57.52" r="3.6" /><circle cx="71.62" cy="53.38" r="3.6" /><circle cx="67.48" cy="48.00" r="3.6" /><circle cx="64.89" cy="41.73" r="3.6" /><circle cx="64.00" cy="35.00" r="3.6" /><circle cx="64.89" cy="28.27" r="3.6" /><circle cx="67.48" cy="22.00" r="3.6" /><circle cx="71.62" cy="16.62" r="3.6" /><circle cx="77.00" cy="12.48" r="3.6" /><circle cx="83.27" cy="9.89" r="3.6" /><circle cx="90.00" cy="9.00" r="3.6" /><circle cx="96.73" cy="9.89" r="3.6" /><circle cx="103.00" cy="12.48" r="3.6" /><circle cx="108.38" cy="16.62" r="3.6" /><circle cx="112.52" cy="22.00" r="3.6" /><circle cx="115.11" cy="28.27" r="3.6" /><circle cx="120.50" cy="35.00" r="2.2" /><circle cx="119.74" cy="41.79" r="2.2" /><circle cx="117.48" cy="48.23" r="2.2" /><circle cx="113.85" cy="54.02" r="2.2" /><circle cx="109.02" cy="58.85" r="2.2" /><circle cx="103.23" cy="62.48" r="2.2" /><circle cx="96.79" cy="64.74" r="2.2" /><circle cx="90.00" cy="65.50" r="2.2" /><circle cx="83.21" cy="64.74" r="2.2" /><circle cx="76.77" cy="62.48" r="2.2" /><circle cx="70.98" cy="58.85" r="2.2" /><circle cx="66.15" cy="54.02" r="2.2" /><circle cx="62.52" cy="48.23" r="2.2" /><circle cx="60.26" cy="41.79" r="2.2" /><circle cx="59.50" cy="35.00" r="2.2" /><circle cx="60.26" cy="28.21" r="2.2" /><circle cx="62.52" cy="21.77" r="2.2" /><circle cx="66.15" cy="15.98" r="2.2" /><circle cx="70.98" cy="11.15" r="2.2" /><circle cx="76.77" cy="7.52" r="2.2" /><circle cx="83.21" cy="5.26" r="2.2" /><circle cx="90.00" cy="4.50" r="2.2" /><circle cx="96.79" cy="5.26" r="2.2" /><circle cx="103.23" cy="7.52" r="2.2" /><circle cx="109.02" cy="11.15" r="2.2" /><circle cx="113.85" cy="15.98" r="2.2" /><circle cx="117.48" cy="21.77" r="2.2" /><circle cx="119.74" cy="28.21" r="2.2" />
+        </g>
+        <!-- Number 7 -->
+        <path d="M 126 10 L 168 10 L 168 21 L 148 65 L 133 65 L 151 22 L 126 22 Z" />
+      </g>
+    </symbol>
+  </svg>
+
+  <div class="app-container">
+
+    <!-- ==========================================
+         1. NAVBAR
+         ========================================== -->
+    <header class="header-wrapper">
+      <nav class="custom-navbar">
+        <!-- Left Links -->
+        <div class="nav-links-left">
+          <a href="listing.html?filter=new" class="nav-item-link">
+            <span>New Drops</span>
+            <span class="fire-emoji">🔥</span>
+          </a>
+          <a href="listing.html?gender=men" class="nav-item-link">
+            <span>Men</span>
+            <i class="ri-arrow-down-s-line" style="font-size: 14px;"></i>
+          </a>
+          <a href="listing.html?gender=women" class="nav-item-link">
+            <span>Women</span>
+            <i class="ri-arrow-down-s-line" style="font-size: 14px;"></i>
+          </a>
+        </div>
+
+        <!-- Center 807 Logo -->
+        <a href="index.html" class="navbar-center-logo" aria-label="807 Home">
+          <svg viewBox="0 0 180 70" style="height: 30px; width: 78px; fill: currentColor;">
+            <use href="#logo-807-symbol"></use>
+          </svg>
+        </a>
+
+        <!-- Right Action Icons -->
+        <div class="nav-actions-right">
+          <button class="nav-icon-btn" aria-label="Search">
+            <i class="ri-search-line"></i>
+          </button>
+          <a href="login.html" class="nav-icon-btn" aria-label="Account profile">
+            <i class="ri-user-line"></i>
+          </a>
+          <a href="cart.html" class="nav-icon-btn position-relative" aria-label="Shopping Cart">
+            <span class="nav-cart-badge">1</span>
+          </a>
+        </div>
+      </nav>
+    </header>
+
+    <!-- ==========================================
+         2. CHECKOUT MAIN FORM & SUMMARY (1:1 FIGMA)
+         ========================================== -->
+    <main class="checkout-page-section">
+      <!-- Top Fast Login Link -->
+      <a href="login.html" class="checkout-login-fast-link">Login and Checkout faster</a>
+
+      <form id="checkoutForm">
+        <div class="row g-4 g-lg-5 align-items-start">
+
+          <!-- Left Column: Contact, Shipping, Delivery & Options -->
+          <div class="col-12 col-lg-7">
+
+            <!-- 1. Contact Details -->
+            <section class="checkout-block mb-4">
+              <h2 class="checkout-section-title">Contact Details</h2>
+              <p class="checkout-section-sub">We will use these details to keep you inform about your delivery.</p>
+              <div class="mb-3">
+                <input
+                  type="email"
+                  class="checkout-input"
+                  id="checkoutEmail"
+                  placeholder="Email"
+                  required
+                />
+              </div>
+            </section>
+
+            <!-- 2. Shipping Address -->
+            <section class="checkout-block mb-4">
+              <h2 class="checkout-section-title">Shipping Address</h2>
+
+              <div class="row g-3 mb-3">
+                <div class="col-6">
+                  <input
+                    type="text"
+                    class="checkout-input"
+                    id="shippingFirstName"
+                    placeholder="First Name*"
+                    required
+                  />
+                </div>
+                <div class="col-6">
+                  <input
+                    type="text"
+                    class="checkout-input"
+                    id="shippingLastName"
+                    placeholder="Last Name*"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div class="mb-1">
+                <input
+                  type="text"
+                  class="checkout-input"
+                  id="shippingAddress"
+                  placeholder="Find Delivery Address*"
+                  required
+                />
+              </div>
+              <div class="checkout-helper-text">
+                Start typing your street address or zip code for suggestion
+              </div>
+
+              <div class="mb-1" style="max-width: 320px;">
+                <input
+                  type="tel"
+                  class="checkout-input"
+                  id="shippingPhone"
+                  placeholder="Phone Number*"
+                  required
+                />
+              </div>
+              <div class="checkout-helper-text">
+                E.g. (123) 456-7890
+              </div>
+            </section>
+
+            <!-- 3. Delivery Options -->
+            <section class="checkout-block mb-4">
+              <h2 class="checkout-section-title">Delivery Options</h2>
+
+              <div class="delivery-options-group">
+                <!-- Standard Delivery ($6.00) -->
+                <div class="delivery-option-box standard active" id="deliveryOptionStandard">
+                  <div class="delivery-option-left-content">
+                    <h5>Standard Delivery</h5>
+                    <p>Enter your address to see when you'll get your order</p>
+                  </div>
+                  <div class="delivery-option-price">$6.00</div>
+                </div>
+
+                <!-- Collect in store (Free) -->
+                <div class="delivery-option-box store" id="deliveryOptionStore">
+                  <div class="delivery-option-left-content">
+                    <h5>Collect in store</h5>
+                    <p>Pay now, collect in store</p>
+                  </div>
+                  <div class="delivery-option-price free">Free</div>
+                </div>
+              </div>
+
+              <!-- Checkboxes -->
+              <label class="custom-checkbox-container mb-2" for="checkBillingSame">
+                <input
+                  type="checkbox"
+                  class="custom-checkbox-input"
+                  id="checkBillingSame"
+                  checked
+                />
+                <span class="custom-checkbox-label">My billing and delivery information are the same</span>
+              </label>
+
+              <label class="custom-checkbox-container mb-3" for="checkAge13">
+                <input
+                  type="checkbox"
+                  class="custom-checkbox-input"
+                  id="checkAge13"
+                  checked
+                  required
+                />
+                <span class="custom-checkbox-label">I'm 13+ year old</span>
+              </label>
+
+              <div class="checkout-newsletter-prompt">Also want product updates with our newsletter?</div>
+              <label class="custom-checkbox-container mb-4" for="checkNewsletter">
+                <input
+                  type="checkbox"
+                  class="custom-checkbox-input"
+                  id="checkNewsletter"
+                  checked
+                />
+                <span class="custom-checkbox-label">Yes, I'd like to receive emails about exclusive sales and more.</span>
+              </label>
+
+              <!-- Review and Pay Button -->
+              <button type="submit" class="btn-checkout-review" id="btnReviewAndPay">
+                REVIEW AND PAY
+              </button>
+            </section>
+
+          </div>
+
+          <!-- Right Column: Order Summary & Order Details -->
+          <div class="col-12 col-lg-5">
+
+            <!-- Order Summary Card -->
+            <div class="order-summary-card">
+              <h2 class="summary-card-title">Order Summary</h2>
+
+              <div class="summary-line-item">
+                <span>1 ITEM</span>
+                <span>$130.00</span>
+              </div>
+
+              <div class="summary-line-item">
+                <span>Delivery</span>
+                <span id="checkoutDeliveryDisplay">$6.00</span>
+              </div>
+
+              <div class="summary-line-item">
+                <span>Sales Tax</span>
+                <span>-</span>
+              </div>
+
+              <div class="summary-total-item">
+                <span>Total</span>
+                <span id="checkoutTotalDisplay">$136.00</span>
+              </div>
+            </div>
+
+            <!-- Order Details Card -->
+            <div class="checkout-order-details-card">
+              <h3 class="checkout-details-title">Order Details</h3>
+
+              <div class="checkout-details-item-row">
+                <div class="checkout-details-thumb">
+                  <img
+                    src="https://images.unsplash.com/photo-1584735935682-2f2b69dff9d2?auto=format&fit=crop&w=600&q=80"
+                    alt="Dropset Trainer Shoes"
+                  />
+                </div>
+                <div class="checkout-details-meta">
+                  <div class="checkout-details-name">DROPSET TRAINER SHOES</div>
+                  <div class="checkout-details-sub">Men's Road Running Shoes</div>
+                  <div class="checkout-details-sub">Enamel Blue/ University White</div>
+                  <div class="checkout-details-specs">Size 10 &nbsp;&nbsp; Quantity 1</div>
+                  <div class="checkout-details-price">$130.00</div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </form>
+    </main>
+
+    <!-- ==========================================
+         3. ORDER CONFIRMATION MODAL
+         ========================================== -->
+    <div class="order-modal-backdrop" id="orderModal">
+      <div class="order-modal-card">
+        <div class="order-modal-icon">
+          <i class="ri-check-line"></i>
+        </div>
+        <h2 class="order-modal-title">Order Confirmed!</h2>
+        <p class="order-modal-text">
+          Thank you for choosing 807! We've received your order and are preparing your kicks for lightning-fast dispatch.
+        </p>
+
+        <div class="order-modal-receipt-box">
+          <div class="order-modal-receipt-row">
+            <span class="text-muted">Order Number:</span>
+            <strong id="receiptOrderNum">#807-94812</strong>
+          </div>
+          <div class="order-modal-receipt-row">
+            <span class="text-muted">Item:</span>
+            <span>Dropset Trainer Shoes (Size 10)</span>
+          </div>
+          <div class="order-modal-receipt-row">
+            <span class="text-muted">Delivery:</span>
+            <span id="receiptDeliveryType">Standard Delivery</span>
+          </div>
+          <div class="order-modal-receipt-row">
+            <span class="text-muted">Amount Paid:</span>
+            <strong class="text-success" id="receiptTotal">$136.00</strong>
+          </div>
+        </div>
+
+        <div class="order-modal-btn-row">
+          <a href="index.html" class="btn-auth-primary justify-content-center w-100">
+            CONTINUE SHOPPING
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==========================================
+         4. COMPOSITE CLUB PROMO & FOOTER (1:1 FIGMA)
+         ========================================== -->
+    <div class="footer-composite-wrapper">
+      <!-- Green Club Promo Banner -->
+      <section class="club-promo-banner">
+        <div class="row align-items-center">
+          <div class="col-12 col-lg-7">
+            <h2 class="club-promo-title">
+              JOIN OUR KICKSPLUS<br />CLUB &amp; GET 15% OFF
+            </h2>
+            <p class="club-promo-subtext">
+              Sign up for free! Join the community.
+            </p>
+            <form class="club-signup-form">
+              <input
+                type="email"
+                class="club-input-email"
+                placeholder="Email address"
+                required
+              />
+              <button type="submit" class="btn-club-submit">
+                SUBMIT
+              </button>
+            </form>
+          </div>
+          <div class="col-12 col-lg-5 club-promo-logo-col">
+            <svg viewBox="0 0 180 70" style="max-width: 320px; width: 100%; fill: #FFFFFF;">
+              <use href="#logo-807-symbol"></use>
+            </svg>
+          </div>
+        </div>
+      </section>
+
+      <!-- Dark Footer Container -->
+      <footer class="footer-dark-container">
+        <div class="footer-inner-content">
+          <div class="row g-4 mb-3">
+            <!-- About Us -->
+            <div class="col-12 col-md-4 col-lg-4">
+              <h4 class="footer-col-title">About us</h4>
+              <p class="footer-about-text">
+                We are the biggest hyperstore in the universe.<br />We got you all cover with our exclusive<br />collections and latest drops.
+              </p>
+            </div>
+
+            <!-- Categories -->
+            <div class="col-6 col-md-3 col-lg-3">
+              <h4 class="footer-col-title">Categories</h4>
+              <ul class="footer-links-list">
+                <li class="footer-link-item"><a href="listing.html?category=runners">Runners</a></li>
+                <li class="footer-link-item"><a href="listing.html?category=lifestyle">Sneakers</a></li>
+                <li class="footer-link-item"><a href="listing.html?category=basketball">Basketball</a></li>
+                <li class="footer-link-item"><a href="listing.html?category=outdoor">Outdoor</a></li>
+                <li class="footer-link-item"><a href="listing.html?category=golf">Golf</a></li>
+                <li class="footer-link-item"><a href="listing.html?category=hiking">Hiking</a></li>
+              </ul>
+            </div>
+
+            <!-- Company -->
+            <div class="col-6 col-md-3 col-lg-3">
+              <h4 class="footer-col-title">Company</h4>
+              <ul class="footer-links-list">
+                <li class="footer-link-item"><a href="#">About</a></li>
+                <li class="footer-link-item"><a href="#">Contact</a></li>
+                <li class="footer-link-item"><a href="#">Blogs</a></li>
+              </ul>
+            </div>
+
+            <!-- Follow Us -->
+            <div class="col-12 col-md-2 col-lg-2">
+              <h4 class="footer-col-title">Follow us</h4>
+              <div class="footer-social-row">
+                <a href="#" class="footer-social-icon" aria-label="Facebook">
+                  <i class="ri-facebook-circle-fill"></i>
+                </a>
+                <a href="#" class="footer-social-icon" aria-label="Instagram">
+                  <i class="ri-instagram-line"></i>
+                </a>
+                <a href="#" class="footer-social-icon" aria-label="Twitter X">
+                  <i class="ri-twitter-x-line"></i>
+                </a>
+                <a href="#" class="footer-social-icon" aria-label="TikTok">
+                  <i class="ri-tiktok-fill"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Giant 807 Watermark Graphic cropped at bottom -->
+        <div class="footer-giant-watermark">
+          <svg viewBox="0 0 180 70">
+            <use href="#logo-807-symbol"></use>
+          </svg>
+        </div>
+      </footer>
+    </div>
+
+    <!-- Page Bottom Copyright -->
+    <div class="page-bottom-copyright">
+      &copy; All rights reserved | Ardy Al-banna
+    </div>
+
+  </div>
+
+  <!-- Bootstrap 5.3.3 JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+  <!-- Custom Scripts -->
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
