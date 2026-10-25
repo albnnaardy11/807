@@ -45,17 +45,22 @@
          ========================================== -->
     <header class="header-wrapper">
       <nav class="custom-navbar">
-        <!-- Left Links -->
+        <!-- Mobile Menu Hamburger Button (Visible on mobile/tablet) -->
+        <button class="nav-hamburger-btn d-lg-none" id="mobileMenuToggle" aria-label="Open Navigation Menu">
+          <i class="ri-menu-line"></i>
+        </button>
+
+        <!-- Left Links (Desktop) -->
         <div class="nav-links-left">
           <a href="index.html#new-drops" class="nav-item-link">
             <span>New Drops</span>
             <span class="fire-emoji">🔥</span>
           </a>
-          <a href="listing.html" class="nav-item-link">
+          <a href="listing.html?gender=men" class="nav-item-link">
             <span>Men</span>
             <i class="ri-arrow-down-s-line" style="font-size: 14px;"></i>
           </a>
-          <a href="listing.html" class="nav-item-link">
+          <a href="listing.html?gender=women" class="nav-item-link">
             <span>Women</span>
             <i class="ri-arrow-down-s-line" style="font-size: 14px;"></i>
           </a>
@@ -115,7 +120,11 @@
         <h2 class="listing-title">Life Style Shoes</h2>
         <p class="listing-item-count">122 items</p>
       </div>
-      <div>
+      <div class="d-flex align-items-center gap-2">
+        <button class="btn-sort-dropdown d-lg-none" type="button" id="mobileFilterToggleBtn" aria-label="Open filter options">
+          <i class="ri-filter-3-line"></i>
+          <span>FILTERS</span>
+        </button>
         <button class="btn-sort-dropdown" type="button" id="sortDropdownBtn">
           <span>TRENDING</span>
           <i class="ri-arrow-down-s-line"></i>
@@ -123,15 +132,26 @@
       </div>
     </div>
 
+    <!-- Backdrop for mobile filter drawer -->
+    <div class="mobile-nav-backdrop" id="mobileFilterBackdrop"></div>
+
     <!-- ==========================================
          4. MAIN CONTENT: FILTERS & 3x3 PRODUCT GRID
          ========================================== -->
     <div class="row g-4">
 
       <!-- LEFT SIDEBAR: FILTERS -->
-      <aside class="col-12 col-lg-3">
+      <aside class="col-12 col-lg-3" id="filtersSidebarCol">
         <div class="filters-sidebar">
-          <h3 class="filters-main-heading">Filters</h3>
+          <!-- Mobile Filter Header -->
+          <div class="mobile-filter-header d-none">
+            <h3>Filters</h3>
+            <button type="button" class="mobile-filter-close-btn" id="mobileFilterCloseBtn" aria-label="Close filters">
+              <i class="ri-close-line"></i>
+            </button>
+          </div>
+
+          <h3 class="filters-main-heading d-none d-lg-block">Filters</h3>
 
           <!-- Group 1: REFINE BY -->
           <div class="filter-group">
@@ -258,15 +278,22 @@
             </div>
           </div>
 
+          <!-- Mobile Filter Footer Apply Button -->
+          <div class="mobile-filter-footer d-none">
+            <button type="button" class="btn-apply-filters" id="btnApplyMobileFilters">
+              APPLY FILTERS
+            </button>
+          </div>
+
         </div>
       </aside>
 
       <!-- RIGHT COLUMN: 3x3 PRODUCT GRID (9 PRODUCTS) -->
       <main class="col-12 col-lg-9">
-        <div class="row g-3 g-md-4">
+        <div class="row g-2 g-sm-3 g-md-4">
 
           <!-- Row 1, Card 1 -->
-          <div class="col-12 col-sm-6 col-md-4">
+          <div class="col-6 col-md-4">
             <div class="listing-product-card">
               <span class="badge-tag-orange">New</span>
               <div class="listing-img-box">
@@ -291,7 +318,7 @@
             </div>
           </div>
 
-          <div class="col-12 col-sm-6 col-md-4">
+          <div class="col-6 col-md-4">
             <div class="listing-product-card">
               <span class="badge-tag-orange">New</span>
               <div class="listing-img-box">
@@ -317,7 +344,7 @@
           </div>
 
           <!-- Row 1, Card 3 -->
-          <div class="col-12 col-sm-6 col-md-4">
+          <div class="col-6 col-md-4">
             <div class="listing-product-card">
               <span class="badge-tag-orange">New</span>
               <div class="listing-img-box">
@@ -343,7 +370,7 @@
           </div>
 
           <!-- Row 2, Card 1 -->
-          <div class="col-12 col-sm-6 col-md-4">
+          <div class="col-6 col-md-4">
             <div class="listing-product-card">
               <span class="badge-tag-orange">New</span>
               <div class="listing-img-box">
@@ -369,7 +396,7 @@
           </div>
 
           <!-- Row 2, Card 2 -->
-          <div class="col-12 col-sm-6 col-md-4">
+          <div class="col-6 col-md-4">
             <div class="listing-product-card">
               <span class="badge-tag-orange">New</span>
               <div class="listing-img-box">
@@ -395,7 +422,7 @@
           </div>
 
           <!-- Row 2, Card 3 -->
-          <div class="col-12 col-sm-6 col-md-4">
+          <div class="col-6 col-md-4">
             <div class="listing-product-card">
               <span class="badge-tag-orange">New</span>
               <div class="listing-img-box">
@@ -421,7 +448,7 @@
           </div>
 
           <!-- Row 3, Card 1 -->
-          <div class="col-12 col-sm-6 col-md-4">
+          <div class="col-6 col-md-4">
             <div class="listing-product-card">
               <span class="badge-tag-green">New</span>
               <div class="listing-img-box">
@@ -447,7 +474,7 @@
           </div>
 
           <!-- Row 3, Card 2 -->
-          <div class="col-12 col-sm-6 col-md-4">
+          <div class="col-6 col-md-4">
             <div class="listing-product-card">
               <span class="badge-tag-orange">20% off</span>
               <div class="listing-img-box">
@@ -473,7 +500,7 @@
           </div>
 
           <!-- Row 3, Card 3 -->
-          <div class="col-12 col-sm-6 col-md-4">
+          <div class="col-6 col-md-4">
             <div class="listing-product-card">
               <span class="badge-tag-green">New</span>
               <div class="listing-img-box">
@@ -626,6 +653,98 @@
     </div>
 
   </div>
+
+  <!-- ==========================================
+       MOBILE NAVIGATION DRAWER & BACKDROP
+       ========================================== -->
+  <div class="mobile-nav-backdrop" id="mobileNavBackdrop"></div>
+  <aside class="mobile-nav-drawer" id="mobileNavDrawer" aria-label="Mobile Navigation Menu">
+    <div class="mobile-nav-header">
+      <a href="index.html" class="mobile-nav-logo" aria-label="807 Home">
+        <svg viewBox="0 0 180 70" style="height: 26px; width: 68px; fill: currentColor;">
+          <use href="#logo-807-symbol"></use>
+        </svg>
+      </a>
+      <button class="mobile-nav-close-btn" id="mobileMenuClose" aria-label="Close menu">
+        <i class="ri-close-line"></i>
+      </button>
+    </div>
+
+    <div class="mobile-nav-body">
+      <div class="mobile-nav-group">
+        <span class="mobile-nav-section-title">Shop Collections</span>
+        <ul class="mobile-nav-list">
+          <li>
+            <a href="index.html#new-drops" class="mobile-nav-link">
+              <span>New Drops</span>
+              <span class="fire-emoji">🔥</span>
+            </a>
+          </li>
+          <li>
+            <a href="listing.html?gender=men" class="mobile-nav-link">
+              <span>Men's Footwear</span>
+              <i class="ri-arrow-right-s-line"></i>
+            </a>
+          </li>
+          <li>
+            <a href="listing.html?gender=women" class="mobile-nav-link">
+              <span>Women's Footwear</span>
+              <i class="ri-arrow-right-s-line"></i>
+            </a>
+          </li>
+          <li>
+            <a href="listing.html" class="mobile-nav-link">
+              <span>All Sneakers</span>
+              <i class="ri-arrow-right-s-line"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="mobile-nav-group">
+        <span class="mobile-nav-section-title">Account & Orders</span>
+        <ul class="mobile-nav-list">
+          <li>
+            <a href="cart.html" class="mobile-nav-link">
+              <span class="d-flex align-items-center gap-2">
+                <i class="ri-shopping-bag-3-line"></i>
+                <span>My Bag</span>
+              </span>
+              <span class="nav-cart-badge mobile-drawer-cart-badge">0</span>
+            </a>
+          </li>
+          <li>
+            <a href="login.html" class="mobile-nav-link">
+              <span class="d-flex align-items-center gap-2">
+                <i class="ri-user-line"></i>
+                <span>Sign In</span>
+              </span>
+              <i class="ri-arrow-right-s-line"></i>
+            </a>
+          </li>
+          <li>
+            <a href="register.html" class="mobile-nav-link">
+              <span class="d-flex align-items-center gap-2">
+                <i class="ri-gift-line text-warning"></i>
+                <span>Join Kicks Club (15% OFF)</span>
+              </span>
+              <i class="ri-arrow-right-s-line"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="mobile-nav-footer">
+        <p class="mobile-nav-tagline">DO IT RIGHT &bull; 807 STREETWEAR</p>
+        <div class="footer-social-row">
+          <a href="#" class="footer-social-icon" aria-label="Facebook"><i class="ri-facebook-circle-fill"></i></a>
+          <a href="#" class="footer-social-icon" aria-label="Instagram"><i class="ri-instagram-line"></i></a>
+          <a href="#" class="footer-social-icon" aria-label="Twitter X"><i class="ri-twitter-x-line"></i></a>
+          <a href="#" class="footer-social-icon" aria-label="TikTok"><i class="ri-tiktok-fill"></i></a>
+        </div>
+      </div>
+    </div>
+  </aside>
 
   <!-- Bootstrap 5.3.3 JS Bundle -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>

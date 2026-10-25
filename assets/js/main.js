@@ -5,15 +5,15 @@
 document.addEventListener('DOMContentLoaded', () => {
   // 1. Persistent Cart Counter Interaction
   let cartCount = parseInt(localStorage.getItem('807_cart_count') || '0', 10);
-  const cartBadge = document.querySelector('.nav-cart-badge');
-  if (cartBadge) {
-    cartBadge.textContent = cartCount;
-  }
+  const cartBadges = document.querySelectorAll('.nav-cart-badge, .mobile-drawer-cart-badge, .nav-cart-badge-text');
+  cartBadges.forEach(b => {
+    b.textContent = cartCount;
+  });
 
   function incrementCart(amount = 1) {
     cartCount += amount;
     localStorage.setItem('807_cart_count', cartCount.toString());
-    const badges = document.querySelectorAll('.nav-cart-badge');
+    const badges = document.querySelectorAll('.nav-cart-badge, .mobile-drawer-cart-badge, .nav-cart-badge-text');
     badges.forEach((b) => {
       b.textContent = cartCount;
       b.classList.add('animate__animated', 'animate__rubberBand');
@@ -240,6 +240,37 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   if (prodPrice && prodPriceParam) {
     prodPrice.textContent = `$${prodPriceParam}.00`;
+  }
+
+  // Sticky Bottom Quick-Buy Bar for Mobile on product.html
+  const productMobileStickyBar = document.getElementById('productMobileStickyBar');
+  const stickyAddCartBtn = document.getElementById('stickyAddCartBtn');
+  const stickyBarTitle = document.getElementById('stickyBarTitle');
+  const stickyBarPrice = document.getElementById('stickyBarPrice');
+
+  if (stickyBarTitle && prodTitle) {
+    stickyBarTitle.textContent = prodTitle.textContent.trim().split(' ').slice(0, 3).join(' ');
+  }
+  if (stickyBarPrice && prodPrice) {
+    stickyBarPrice.textContent = prodPrice.textContent.trim();
+  }
+
+  if (productMobileStickyBar && addCartBtn) {
+    window.addEventListener('scroll', () => {
+      const rect = addCartBtn.getBoundingClientRect();
+      if (rect.bottom < 0) {
+        productMobileStickyBar.classList.add('visible');
+      } else {
+        productMobileStickyBar.classList.remove('visible');
+      }
+    }, { passive: true });
+  }
+
+  if (stickyAddCartBtn) {
+    stickyAddCartBtn.addEventListener('click', () => {
+      incrementCart(1);
+      showNotification('Added to Bag! 🔥 <a href="cart.html" style="color:#FFA52F;text-decoration:underline;margin-left:8px;">View Bag</a>');
+    });
   }
 
   // ==========================================
@@ -546,5 +577,95 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
+
+  // ==========================================
+  // 11. MOBILE NAVIGATION & FILTER DRAWERS
+  // ==========================================
+  const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+  const mobileMenuClose = document.getElementById('mobileMenuClose');
+  const mobileNavDrawer = document.getElementById('mobileNavDrawer');
+  const mobileNavBackdrop = document.getElementById('mobileNavBackdrop');
+
+  function openMobileNav() {
+    if (mobileNavDrawer && mobileNavBackdrop) {
+      mobileNavDrawer.classList.add('active');
+      mobileNavBackdrop.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
+  function closeMobileNav() {
+    if (mobileNavDrawer && mobileNavBackdrop) {
+      mobileNavDrawer.classList.remove('active');
+      mobileNavBackdrop.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  }
+
+  if (mobileMenuToggle) {
+    mobileMenuToggle.addEventListener('click', openMobileNav);
+  }
+  if (mobileMenuClose) {
+    mobileMenuClose.addEventListener('click', closeMobileNav);
+  }
+  if (mobileNavBackdrop) {
+    mobileNavBackdrop.addEventListener('click', closeMobileNav);
+  }
+
+  // Close mobile drawer when clicking any link inside
+  const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+  mobileNavLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      closeMobileNav();
+    });
+  });
+
+  // Mobile Filters Drawer for listing.html
+  const mobileFilterToggleBtn = document.getElementById('mobileFilterToggleBtn');
+  const filtersSidebarCol = document.getElementById('filtersSidebarCol');
+  const mobileFilterCloseBtn = document.getElementById('mobileFilterCloseBtn');
+  const mobileFilterBackdrop = document.getElementById('mobileFilterBackdrop');
+  const btnApplyMobileFilters = document.getElementById('btnApplyMobileFilters');
+
+  function openMobileFilters() {
+    if (filtersSidebarCol && mobileFilterBackdrop) {
+      filtersSidebarCol.classList.add('mobile-filter-open');
+      mobileFilterBackdrop.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
+  function closeMobileFilters() {
+    if (filtersSidebarCol && mobileFilterBackdrop) {
+      filtersSidebarCol.classList.remove('mobile-filter-open');
+      mobileFilterBackdrop.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  }
+
+  if (mobileFilterToggleBtn) {
+    mobileFilterToggleBtn.addEventListener('click', openMobileFilters);
+  }
+  if (mobileFilterCloseBtn) {
+    mobileFilterCloseBtn.addEventListener('click', closeMobileFilters);
+  }
+  if (mobileFilterBackdrop) {
+    mobileFilterBackdrop.addEventListener('click', closeMobileFilters);
+  }
+  if (btnApplyMobileFilters) {
+    btnApplyMobileFilters.addEventListener('click', () => {
+      closeMobileFilters();
+      showNotification('Filters applied! Showing updated sneaker selection.');
+    });
+  }
+
+  // Close on Escape Key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      closeMobileNav();
+      closeMobileFilters();
+    }
+  });
 });
+
 
